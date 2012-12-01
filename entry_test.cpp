@@ -24,5 +24,5 @@ int main(){
 	cout << hashKey << endl;
 	*/
 	Hash<int>* hash = new Hash<int>();
-
+	hash->insert("a", 10);
 }

@@ -16,6 +16,7 @@ Hash<V>::Hash(){
 template <typename V>
 void Hash<V>::insert(string k, V v){
 	//Entry<V> newEntry = new Entry<V>(k, v)
+	cout << hash(k) << endl;
 	table[0].push_back(new Entry<V>(k, v));
 }
 
@@ -30,8 +31,16 @@ void Hash<V>::remove(string k){
 }
 
 template <typename V>
-int Hash<V>::hashKey(string k){
-	return 0;
+int Hash<V>::hash(string k){
+	int sum = 0;
+	int hash;
+	int size = 11;
+	for(int i = 0; (int) i < k.size();++i){
+		sum += (int) k[i];
+	}
+
+	hash = sum%size;
+	return hash;
 }
 
 template class Hash<int>;
