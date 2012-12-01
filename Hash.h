@@ -12,7 +12,7 @@ template <typename V>
 class Hash {
 	private:
 		vector<list<Entry<V>* > > table;  //vector
-		int hash(string k);		 //declaration for hash function
+		int hashKey(string k);		 //declaration for hash function
 	
 	public:
 		Hash<V>();

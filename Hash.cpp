@@ -15,7 +15,8 @@ Hash<V>::Hash(){
 
 template <typename V>
 void Hash<V>::insert(string k, V v){
-
+	//Entry<V> newEntry = new Entry<V>(k, v)
+	table[0].push_back(new Entry<V>(k, v));
 }
 
 template <typename V>
@@ -29,10 +30,10 @@ void Hash<V>::remove(string k){
 }
 
 template <typename V>
-int Hash<V>::hash(string k){
+int Hash<V>::hashKey(string k){
 	return 0;
 }
 
-//template class Hash<int>;
+template class Hash<int>;
 //template class Hash<double>;
 //template class Hash<string>;
