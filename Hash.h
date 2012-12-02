@@ -13,6 +13,7 @@ class Hash {
 	private:
 		vector<list<Entry<V>* > > table;  //vector
 		int hash(string k);		 //declaration for hash function
+		int size;
 	
 	public:
 		Hash<V>();

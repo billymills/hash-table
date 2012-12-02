@@ -25,4 +25,5 @@ int main(){
 	*/
 	Hash<int>* hash = new Hash<int>();
 	hash->insert("a", 10);
+	cout << hash->lookup("a") << endl;
 }
