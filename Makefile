@@ -1,17 +1,12 @@
 CC = g++
 CFLAGS = -Wall -Wextra
 
+SRC = ./src
+BUILD = ./build
 
-etest: entry_test.cpp Entry.o Hash.o
-	$(CC) $(CFLAGS) -o etest entry_test.cpp Entry.o Hash.o
-
-Entry.o: Entry.h Entry.cpp
-	$(CC) $(CFLAGS) -c Entry.cpp
-
-Hash.o: Hash.h Hash.cpp
-	$(CC) $(CFLAGS) -c Hash.cpp
+$(BUILD)/etest: $(SRC)/entry_test.cpp $(SRC)/Entry.o $(SRC)/Hash.o
+	$(CC) $(CFLAGS) -o $(BUILD)/etest $(SRC)/entry_test.cpp $(SRC)/Entry.o $(SRC)/Hash.o
 
 clean:
-	rm -f *.o
-	rm -f *~
-	rm -f etest
+	cd $(BUILD); rm -f etest
+	cd $(SRC); $(MAKE) clean
