@@ -23,7 +23,7 @@ int main(){
 
 	cout << hashKey << endl;
 	*/
-	Hash<int>* hash = new Hash<int>();
-	hash->insert("a", 10);
+	Hash<string>* hash = new Hash<string>();
+	hash->insert("a", "hi");
 	cout << hash->lookup("a") << endl;
 }
