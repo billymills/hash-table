@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 #include "Hash.h"
 
 using std::cout;
@@ -16,31 +15,49 @@ Hash<V>::Hash(){
 
 template <typename V>
 void Hash<V>::insert(string k, V v){
-	//Entry<V> newEntry = new Entry<V>(k, v)
 	int index = hash(k);
-	//cout << hash(k) << endl;
-	//table[index].push_back(new Entry<V>("hi", 12));
+	
+	typename list<Entry<V>* >::iterator it;
+	for (it=table[index].begin(); it != table[index].end(); ++it){
+		if ((*it)->getKey() == k){
+			(*it)->setValue(v);
+			return;
+		}
+	}
 	table[index].push_back(new Entry<V>(k, v));
 }
 
 template <typename V>
-V Hash<V>::lookup(string k){
+bool Hash<V>::lookup(string k){
 	int index = hash(k);
-	//return table[index].front()->getValue();
 
 	typename list<Entry<V>* >::iterator it;
 	for (it=table[index].begin(); it != table[index].end();++it){
 		if ((*it)->getKey() == k){
-			return (*it)->getValue();
+			cout << "Key: " << k << "  Value: " << (*it)->getValue() << endl;
+			return true;
 		}
 	}
-	cout << "Key not found" << endl;
-	return 0;
+
+	cout << "Key: " << k << " not found!" << endl;
+	
+	return false;	
 }
 
 template <typename V>
-void Hash<V>::remove(string k){
-
+bool Hash<V>::remove(string k){
+	int index = hash(k);
+	
+	typename list<Entry<V>* >::iterator it;
+	for (it=table[index].begin(); it != table[index].end(); ++it){
+		if ((*it)->getKey() == k){
+			table[index].erase(it);
+			cout << "Key: " << k << " Value: " << (*it)->getValue() << " removed" << endl;
+			return true;
+		}
+	}
+	cout << "Key: " << k << " not found" << endl;
+	return false;
 }
 
 template <typename V>

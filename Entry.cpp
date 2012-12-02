@@ -30,5 +30,5 @@ void Entry<V>::setValue(V v){
 
 
 template class Entry<int>;
-template class Entry<double>;
+//template class Entry<double>;
 template class Entry<string>;

@@ -25,5 +25,7 @@ int main(){
 	*/
 	Hash<string>* hash = new Hash<string>();
 	hash->insert("a", "hi");
-	cout << hash->lookup("a") << endl;
+	hash->lookup("a");
+	hash->lookup("b");
+	hash->remove("a");
 }
