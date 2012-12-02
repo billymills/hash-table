@@ -8,8 +8,7 @@ using std::string;
 
 template <typename V>
 Hash<V>::Hash(){
-	//set up table
-	size = 3;
+	size = 101;
 	table.resize(size);
 }
 
@@ -24,6 +23,7 @@ void Hash<V>::insert(string k, V v){
 			return;
 		}
 	}
+
 	table[index].push_back(new Entry<V>(k, v));
 }
 
@@ -39,7 +39,7 @@ bool Hash<V>::lookup(string k){
 		}
 	}
 
-	cout << "Key: " << k << " not found!" << endl;
+	cout << "Key-  " << k << "  -not found!" << endl;
 	
 	return false;	
 }
@@ -50,13 +50,17 @@ bool Hash<V>::remove(string k){
 	
 	typename list<Entry<V>* >::iterator it;
 	for (it=table[index].begin(); it != table[index].end(); ++it){
+
 		if ((*it)->getKey() == k){
 			table[index].erase(it);
 			cout << "Key: " << k << " Value: " << (*it)->getValue() << " removed" << endl;
 			return true;
 		}
+
 	}
-	cout << "Key: " << k << " not found" << endl;
+
+	cout << "Key-  " << k << "  -not found" << endl;
+
 	return false;
 }
 
@@ -64,7 +68,7 @@ template <typename V>
 int Hash<V>::hash(string k){
 	int sum = 0;
 	int hash;
-	//int size = 11;
+	
 	for(int i = 0; (unsigned int) i < k.size();++i){
 		sum += (int) k[i];
 	}
@@ -74,5 +78,5 @@ int Hash<V>::hash(string k){
 }
 
 template class Hash<int>;
-//template class Hash<double>;
+template class Hash<double>;
 template class Hash<string>;

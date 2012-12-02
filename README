@@ -1,0 +1,4 @@
+c++ Hash Table Implementation
+Keys are strings, values can be ints, doubles, or strings
+
+running 'Make' in main directory creates 'etest' executable in build directory
