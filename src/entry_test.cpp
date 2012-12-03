@@ -8,19 +8,74 @@ using std::endl;
 using std::string;
 
 int main(){
-	
 
-	Hash<string>* hash = new Hash<string>();
-	hash->insert("a", "hi");
-	hash->insert("b", "of");
-	hash->insert("e", "to");
-	hash->insert("h", "on");
-	hash->insert("g", "bye");
-	hash->lookup("a");
-	hash->lookup("b");
-	hash->remove("a");
-	hash->lookup("g");
-	hash->remove("e");
-	hash->lookup("e");
-	delete hash;
+	string myArray [20] = {"zero","one","two","three","four","five","six","seven","eight","nine",
+		"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen",
+		"eighteen","nineteen"};
+
+	double dArray [20] = {0.1,1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.1,11.1,12.2,13.3,14.4,15.5,
+		16.6,17.7,18.8,19.9};
+	
+	string sArray [20] = {"cero","uno","dos","tres","quatro","cinco","seis","siete","ocho","nueve",
+		"diez","once","doce","trece","catorce","quince","dieciseis","diecisiete",
+		"dieciocho","diecinueve"};
+
+	Hash<int>* intHash = new Hash<int>();
+	for(int i = 0;i < 20;++i){
+		intHash->insert(myArray[i], i);
+	}
+
+	for(int i = 0;i< 20;++i){
+		intHash->lookup(myArray[i]);
+	}
+
+	for(int i = 19;i>=0;--i){
+		intHash->remove(myArray[i]);
+	}
+
+	for(int i = 0;i< 20;++i){
+		intHash->lookup(myArray[i]);
+	}
+	
+	delete intHash;
+
+	Hash<double>* doubleHash = new Hash<double>();
+	for(int i = 0;i < 20;++i){
+		doubleHash->insert(myArray[i], dArray[i]);
+	}
+
+	for(int i = 0;i< 20;++i){
+		doubleHash->lookup(myArray[i]);
+	}
+
+	for(int i = 19;i>=0;--i){
+		doubleHash->remove(myArray[i]);
+	}
+
+	for(int i = 0;i< 20;++i){
+		doubleHash->lookup(myArray[i]);
+	}
+	
+	delete doubleHash;
+	
+	Hash<string>* stringHash = new Hash<string>();
+	for(int i = 0;i < 20;++i){
+		stringHash->insert(myArray[i], sArray[i]);
+	}
+
+	for(int i = 0;i< 20;++i){
+		stringHash->lookup(myArray[i]);
+	}
+
+	for(int i = 19;i>=0;--i){
+		stringHash->remove(myArray[i]);
+	}
+
+	for(int i = 0;i< 20;++i){
+		stringHash->lookup(myArray[i]);
+	}
+	
+	delete stringHash;
+
+
 }
