@@ -13,6 +13,21 @@ Hash<V>::Hash(){
 }
 
 template <typename V>
+Hash<V>::~Hash(){
+	cout << "in dest" << endl;
+	for (int i = 0; i < table.size(); ++i){
+		cout << "in for" << endl;
+		if (table[i].size() != 0){
+			for (int i = 0; i < table[i].size(); ++i){
+				table[i].pop_back();
+			}
+		}
+	}
+	cout << "out" << endl;
+	//delete &table;
+}
+
+template <typename V>
 void Hash<V>::insert(string k, V v){
 	int index = hash(k);
 	

@@ -17,6 +17,7 @@ class Hash {
 	
 	public:
 		Hash<V>();
+		~Hash<V>();
 		bool lookup(string k);
 		void insert(string k, V v);
 		bool remove(string k);
