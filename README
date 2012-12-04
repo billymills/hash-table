@@ -2,3 +2,7 @@ c++ Hash Table Implementation
 Keys are strings, values can be ints, doubles, or strings
 
 running 'Make' in main directory creates 'etest' executable in build directory
+
+current size of table set at 101, was tested at size 11 to force collisions...
+
+to set to another size, change size assignment in constructor in Hash.cpp

@@ -8,7 +8,7 @@ using std::string;
 
 template <typename V>
 Hash<V>::Hash(){
-	size = 11;
+	size = 101;
 	table.resize(size);
 }
 
