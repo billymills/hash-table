@@ -43,20 +43,20 @@ void Hash<V>::insert(string k, V v){
 }
 
 template <typename V>
-bool Hash<V>::lookup(string k){
+V* Hash<V>::lookup(string k){
 	int index = hash(k);
 
 	typename list<Entry<V>* >::iterator it;
 	for (it=table[index].begin(); it != table[index].end();++it){
 		if ((*it)->getKey() == k){
-			cout << "Key: " << k << "  Value: " << (*it)->getValue() << endl;
-			return true;
+			//cout << "Key: " << k << "  Value: " << (*it)->getValue() << endl;
+			return (*it)->getValue();
 		}
 	}
 
-	cout << "Key-  " << k << "  -not found!" << endl;
+	//cout << "Key-  " << k << "  -not found!" << endl;
 	
-	return false;	
+	return 0;	
 }
 
 template <typename V>
@@ -68,7 +68,7 @@ bool Hash<V>::remove(string k){
 
 		if ((*it)->getKey() == k){
 			table[index].erase(it);
-			cout << "Key: " << k << " Value: " << (*it)->getValue() << " removed" << endl;
+			//cout << "Key: " << k << " Value: " << (*it)->getValue() << " removed" << endl;
 			return true;
 		}
 

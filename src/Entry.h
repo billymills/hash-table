@@ -15,7 +15,7 @@ class Entry {
 		Entry(string k, V v);
 		//~Entry();
 		string getKey();
-		V getValue();
+		V* getValue();
 		void setValue(V v);	
 };
 

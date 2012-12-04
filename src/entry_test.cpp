@@ -26,7 +26,7 @@ int main(){
 	}
 
 	for(int i = 0;i< 20;++i){
-		intHash->lookup(myArray[i]);
+		cout << *(intHash->lookup(myArray[i])) << endl;
 	}
 
 	for(int i = 19;i>=0;--i){
@@ -45,7 +45,7 @@ int main(){
 	}
 
 	for(int i = 0;i< 20;++i){
-		doubleHash->lookup(myArray[i]);
+		cout << *(doubleHash->lookup(myArray[i])) << endl;
 	}
 
 	for(int i = 19;i>=0;--i){
@@ -57,14 +57,14 @@ int main(){
 	}
 	
 	delete doubleHash;
-	
+
 	Hash<string>* stringHash = new Hash<string>();
 	for(int i = 0;i < 20;++i){
 		stringHash->insert(myArray[i], sArray[i]);
 	}
 
 	for(int i = 0;i< 20;++i){
-		stringHash->lookup(myArray[i]);
+		cout << *(stringHash->lookup(myArray[i])) << endl;
 	}
 
 	for(int i = 19;i>=0;--i){
