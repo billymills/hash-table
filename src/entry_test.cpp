@@ -26,17 +26,21 @@ int main(){
 	}
 
 	for(int i = 0;i< 20;++i){
-		cout << *(intHash->lookup(myArray[i])) << endl;
+		cout << "key: " << myArray[i] << " found - value: " << *(intHash->lookup(myArray[i])) << endl;
 	}
+
+	cout << "removing all entries..." << endl;
 
 	for(int i = 19;i>=0;--i){
 		intHash->remove(myArray[i]);
 	}
 
 	for(int i = 0;i< 20;++i){
-		intHash->lookup(myArray[i]);
+		if (intHash->lookup(myArray[i]) == 0){
+			cout << "key: " << myArray[i] << " not found" << endl;
+		}
 	}
-	
+
 	delete intHash;
 
 	Hash<double>* doubleHash = new Hash<double>();
@@ -45,15 +49,19 @@ int main(){
 	}
 
 	for(int i = 0;i< 20;++i){
-		cout << *(doubleHash->lookup(myArray[i])) << endl;
+		cout << "key: " << myArray[i] << " found - value: " << *(doubleHash->lookup(myArray[i])) << endl;
 	}
+	
+	cout << "removing all entries..." << endl;
 
 	for(int i = 19;i>=0;--i){
 		doubleHash->remove(myArray[i]);
 	}
 
 	for(int i = 0;i< 20;++i){
-		doubleHash->lookup(myArray[i]);
+		if (doubleHash->lookup(myArray[i]) == 0){
+			cout << "key: " << myArray[i] << " not found" << endl;
+		}
 	}
 	
 	delete doubleHash;
@@ -64,18 +72,20 @@ int main(){
 	}
 
 	for(int i = 0;i< 20;++i){
-		cout << *(stringHash->lookup(myArray[i])) << endl;
+		cout << "key: " << myArray[i] << " found - value: " << *(stringHash->lookup(myArray[i])) << endl;
 	}
+	
+	cout << "removing all entries..." << endl;
 
 	for(int i = 19;i>=0;--i){
 		stringHash->remove(myArray[i]);
 	}
 
 	for(int i = 0;i< 20;++i){
-		stringHash->lookup(myArray[i]);
+		if (stringHash->lookup(myArray[i]) == 0){
+			cout << "key: " << myArray[i] << " not found" << endl;
+		}
 	}
 	
 	delete stringHash;
-
-
 }
